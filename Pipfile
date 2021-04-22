@@ -14,6 +14,8 @@ spacy = "*"
 python-dotenv = "*"
 sklearn = "*"
 numpy = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
