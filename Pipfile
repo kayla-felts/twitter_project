@@ -9,6 +9,9 @@ flask-sqlalchemy = "*"
 jinja2 = "*"
 pep8 = "*"
 pylint = "*"
+tweepy = "*"
+spacy = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

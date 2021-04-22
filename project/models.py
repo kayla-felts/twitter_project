@@ -6,6 +6,7 @@ DB = SQLAlchemy()
 class User(DB.Model):
     id = DB.Column(DB.BigInteger, primary_key=True)
     name = DB.Column(DB.String, nullable=False)
+    newest_tweet_id = DB.Column(DB.BigInteger)
 
     def __repr__(self):
         return f'User: {self.name}'
@@ -14,6 +15,7 @@ class User(DB.Model):
 class Tweet(DB.Model):
     id = DB.Column(DB.BigInteger, primary_key=True)
     text = DB.Column(DB.Unicode(300))
+    vect = DB.Column(DB.PickleType, nullable=False)
     user_id = DB.Column(DB.BigInteger, DB.ForeignKey(
         'user.id'), nullable=False)
     user = DB.relationship('User', backref=DB.backref(
@@ -23,9 +25,9 @@ class Tweet(DB.Model):
         return f'Tweet: {self.text}'
 
 
-def insert_example_users():
-    kayla = User(id=1, name='Kayla')
-    jasmine = User(id=2, name='Jasmine')
-    DB.session.add(kayla)
-    DB.session.add(jasmine)
-    DB.session.commit()
+# def insert_example_users():
+#     kayla = User(id=1, name='Kayla')
+#     jasmine = User(id=2, name='Jasmine')
+#     DB.session.add(kayla)
+#     DB.session.add(jasmine)
+#     DB.session.commit()
