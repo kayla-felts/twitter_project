@@ -12,6 +12,8 @@ pylint = "*"
 tweepy = "*"
 spacy = "*"
 python-dotenv = "*"
+sklearn = "*"
+numpy = "*"
 
 [dev-packages]
 
